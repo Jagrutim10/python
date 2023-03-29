@@ -1,0 +1,39 @@
+Assignment :16
+Source code:
+Server-side code:
+import java.net.*;
+import java.io.*;
+public class Server
+{
+public static void main(String args[])throws Exception
+{
+ServerSocket ss=new ServerSocket(6489);
+Socket s=ss.accept();
+DataInputStream din=new DataInputStream(s.getInputStream());
+DataOutputStream dout=new DataOutputStream(s.getOutputStream());
+String str="Hello";
+din.readUTF(); dout.writeUTF(str);
+System.out.println("client says: "+str);
+dout.flush();
+din.close();
+s.close();
+ss.close();
+}
+}
+Client-side code:
+import java.net.*;
+import java.io.*;
+public class Client1{
+public static void main(String args[])throws Exception
+{
+Socket s=new Socket("localhost",6489);
+DataInputStream din=new DataInputStream(s.getInputStream());
+DataOutputStream dout=new DataOutputStream(s.getOutputStream());
+String str2="Server Got This";
+dout.writeUTF(str2);
+System.out.println("Server says: "+str2);
+dout.flush();
+dout.close();
+s.close();
+}
+}
