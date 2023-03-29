@@ -1,0 +1,30 @@
+Assignment :7
+Source code:
+import java.util.*;
+public class ExceptionDemo
+{
+public static void main (String args [ ]){
+try
+{
+Scanner sc = new Scanner(System.in);
+System. out.println("Enter a No a: " );
+int a = sc.nextInt();
+System. out.println("Enter a No b: " );
+int b= sc.nextInt();
+int ans= a/b;
+System.out.println ("Divide no .is "+ans);
+}
+catch (ArithmeticException e)
+{
+System.out.println ("Number can not divide by zero ");
+}
+catch (InputMismatchException e)
+{
+System.out.println ("Input not properly given ");
+}
+catch (Exception e)
+{
+System.out.println ("Wrong argument is given ");
+}
+}
+}
