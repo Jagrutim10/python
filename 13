@@ -1,0 +1,55 @@
+Assignment :13
+Source code:
+Html code:
+<html>
+<head>
+<title>Email Registration</title>
+</head>
+<body bgcolor="White">
+<form action ="email" method="post">
+<center>
+<h1>Email - Registration</h1>
+<table border=1>
+<th>User Details</th>
+<tr><td>Enter ID :<input type="text" name="uid"></td></tr>
+<tr><td>Enter Name :<input type="text" name="uname"></td></tr>
+<tr><td>Enter Password :<input type="password" name="upwd"></td></tr>
+<tr><td>Enter Address :<input type="text" name="uadd"></td></tr>
+<tr><td>Enter Telephone :<input type="text" name="utel"></td></tr>
+<tr><td><input type="submit" value="DISPLAY"></td></tr>
+</table>
+</center>
+</form>
+</body>
+</html>
+Servlet Code:
+import javax.servlet.*;
+import javax.servlet.http.*;
+import java.io.*;
+public class EmailDemo extends HttpServlet
+{
+public void doPost(HttpServletRequest req,HttpServletResponse res)throws
+ServletException,IOException
+{
+String uid=req.getParameter("uid");
+String un=req.getParameter("uname");
+String upwd=req.getParameter("upwd");
+String uadd=req.getParameter("uadd");
+String utel=req.getParameter("utel");
+res.setContentType("text/html");
+PrintWriter out=res.getWriter();
+out.println("<html>");
+out.println("<head>");
+out.println("<title>Display Email - Registartion Details</title>");
+out.println("</head>");
+out.println("<body>");
+out.println("<h1>Details Entered</h1><br>");
+out.println("User ID :"+uid+"<br>");
+out.println("User Name :"+un+"<br>");
+out.println("User Password :"+upwd+"<br>");
+out.println("User Address :"+uadd+"<br>");
+out.println("User Telephone :"+utel);
+out.println("</body>");
+out.println("</html>");
+}
+}
