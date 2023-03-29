@@ -1,0 +1,42 @@
+Assignment :14
+Source code :
+HTML code: Product.Html
+<!DOCTYPE html>
+<html>
+<body>
+<form method="post" action="Product.jsp"> ID:<br>
+<input type="text" name="ID">
+<br> Description:<br>
+<input type="text" name="Description">
+<br> Quantity:<br>
+<input type="text" name="Quantity">
+<br> Rate:<br>
+<input type="text" name="Rate">
+<br>
+<input type="submit" value="Register">
+<input type="submit" value="Reset">
+</form>
+</body>
+</html>
+Jsp code: Product.jsp
+<%@page import="java.sql.*,java.util.*"%>
+<%
+String ID=request.getParameter("ID");
+String Description=request.getParameter("Description");
+String Quantity=request.getParameter("Quantity");
+String Rate=request.getParameter("Rate");
+try
+{
+Class.forName("com.mysql.cj.jdbc.Driver");
+Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/productdb", "root",
+"4878");
+Statement st=conn.createStatement();
+int i=st.executeUpdate("insert into
+product(ID,Description,Quantity,Rate)values('"+ID+"','"+Description+"','"+Quantity+"','"+Rate+"')");
+out.println("Data is successfully inserted!");
+}
+catch(Exception e)
+{
+System.out.print(e); e.printStackTrace();
+}
+%
