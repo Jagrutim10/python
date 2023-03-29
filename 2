@@ -1,0 +1,52 @@
+Assignment :2
+Sourse code:
+import java.util.*;
+public class LeapYear
+{
+int year;
+public static boolean isLeapYear(int year)
+{
+if (year % 4 != 0)
+{
+return false;
+} else if (year % 400 == 0)
+{
+return true;
+}
+else if (year % 100 == 0)
+{
+return false;
+} else
+{
+return true;
+}
+}
+public static String checkLeapYear(int year)
+{
+if (isLeapYear(year))
+{
+return year + " is a leap year";
+}
+else
+{
+return year + " is not a leap year";
+}
+}
+public static void main(String args[])
+{
+Scanner sc = new Scanner(System.in);
+System. out.println("Enter a Year: " );
+int year = sc.nextInt();
+System.out.println(checkLeapYear( year));
+}
+}
+class MyConstructor
+{
+public static void main(String[] args)
+{
+Employee emp1 = new Employee();
+Employee emp2 = new Employee(102, "Samarth Rao", 650000);
+emp1.displayDetails();
+emp2.displayDetails();
+}
+}
