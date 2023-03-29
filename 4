@@ -1,0 +1,31 @@
+Assignment :4
+Source code:
+import java.util.*;
+abstract class Shape
+{
+int x,y;
+abstract void area(double x, double y) ;
+}
+class Rectangle extends Shape
+{
+void area(double x, double y)
+{
+System.out.println("Area of rectangle is:"+(x*y));
+}
+}
+class Triangle extends Shape
+{
+void area(double x, double y)
+{
+System.out.println("Area of triangle is:"+(0.5*x*y));
+}
+}
+public class AbstractDemo
+{
+public static void main(String[] args){
+Shape r=new Rectangle();
+r.area(4, 9);
+Shape t=new Triangle();
+t.area(7, 13);
+}
+}
